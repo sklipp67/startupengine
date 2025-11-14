@@ -1,0 +1,253 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f172a;
+  --bg-elevated: #020617;
+  --card: #020617;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.15);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border-subtle: #1f2937;
+  --radius-lg: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background: radial-gradient(circle at top left, #1e293b, #020617 55%, #000);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 4px 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+header p {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: 16px 18px 18px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+
+.card-title {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: #020617;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px;
+}
+
+.checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.checkbox-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+#generate-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #38bdf8, #22c55e);
+  color: #0b1120;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#generate-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.output-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.output-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.output-body {
+  border-radius: 12px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), #020617);
+  padding: 12px 14px;
+  overflow: auto;
+  max-height: calc(100vh - 140px);
+  font-size: 0.9rem;
+}
+
+.placeholder-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ghost-button {
+  border-radius: 999px;
+  border: 1px solid var(--accent-soft);
+  background: transparent;
+  color: var(--accent);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.ghost-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Rendered Markdown */
+
+.output-body h2,
+.output-body h3,
+.output-body h4 {
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.output-body p {
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.output-body ul {
+  margin: 4px 0 6px 18px;
+  padding: 0;
+}
+
+.output-body li {
+  margin: 2px 0;
+}
+
+.output-body strong {
+  color: #fef3c7;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .output-body {
+    max-height: none;
+  }
+
+  .top-bar {
+    margin-bottom: 8px;
+  }
+}

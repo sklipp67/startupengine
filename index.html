@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Startup Engine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-mark">SE</span>
+        <div>
+          <h1>Startup Engine</h1>
+          <p>Your personal startup planning copilot</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card input-card">
+        <h2 class="card-title">Your idea</h2>
+        <form id="startup-form">
+          <div class="two-column">
+            <div class="form-group">
+              <label for="user_type">Who are you?</label>
+              <select id="user_type" name="user_type">
+                <option value="adult">Adult entrepreneur</option>
+                <option value="high_school">High school student</option>
+                <option value="college">College student</option>
+                <option value="educator">Educator</option>
+                <option value="coach">Coach</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="experience_level">Experience level</label>
+              <select id="experience_level" name="experience_level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="business_idea">Business idea</label>
+            <input id="business_idea" name="business_idea" type="text"
+                   placeholder="Mobile dog grooming, tutoring, food pop-up, etc." />
+          </div>
+
+          <div class="two-column">
+            <div class="form-group">
+              <label for="budget">Budget (USD)</label>
+              <input id="budget" name="budget" type="number" min="0"
+                     placeholder="e.g. 2500" />
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">Timeline</label>
+              <input id="timeline" name="timeline" type="text"
+                     placeholder="e.g. 30 days, 90 days, 6 months" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text"
+                   placeholder="e.g. Honolulu, Hawaii" />
+          </div>
+
+          <div class="form-group">
+            <label for="goals">Goals</label>
+            <textarea id="goals" name="goals" rows="2"
+              placeholder="Example: Start a flexible side business that reliably adds $500/month."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="target_customer">Target customer description</label>
+            <textarea id="target_customer" name="target_customer" rows="2"
+              placeholder="Who is this for? Age, lifestyle, needs, where they spend time, etc."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="challenges">Biggest challenges or fears</label>
+            <textarea id="challenges" name="challenges" rows="2"
+              placeholder="What feels scary or uncertain about starting this business?"></textarea>
+          </div>
+
+          <div class="two-column">
+            <div class="form-group">
+              <label for="skills">Relevant skills</label>
+              <input id="skills" name="skills" type="text"
+                     placeholder="customer service, teaching, design" />
+            </div>
+            <div class="form-group">
+              <label for="unique_value">What makes this business unique?</label>
+              <input id="unique_value" name="unique_value" type="text"
+                     placeholder="Eco-friendly, mobile, personalized, etc." />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vision">Vision / Why this business?</label>
+            <textarea id="vision" name="vision" rows="2"
+              placeholder="What do you imagine this becoming? Why does it matter to you or your community?"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Preferred sales channels</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="channels" value="online" checked /> Online</label>
+              <label><input type="checkbox" name="channels" value="offline" /> Offline</label>
+              <label><input type="checkbox" name="channels" value="hybrid" /> Hybrid</label>
+            </div>
+          </div>
+
+          <button type="submit" id="generate-btn">Generate Startup Plan</button>
+        </form>
+      </section>
+
+      <section class="card output-card">
+        <div class="output-header">
+          <h2 class="card-title">Startup plan</h2>
+          <button type="button" id="copy-btn" class="ghost-button">Copy plan</button>
+        </div>
+        <div id="output" class="output-body">
+          <p class="placeholder-text">
+            Fill out the form on the left and click “Generate Startup Plan.”
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- App logic -->
+  <script src="app.js"></script>
+</body>
+</html>
